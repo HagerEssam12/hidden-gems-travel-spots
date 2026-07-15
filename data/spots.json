@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 1,
+        "name": "Siwa Oasis",
+        "description": " A peaceful hidden gem surrounded by nature.",
+        "location": "Siwa, Egypt",
+        "category": "Nature",
+        "image_url": "https://i.pinimg.com/originals/44/76/88/4476888250594845a11c727ec30e3557.jpg",
+        "added_by": "hager"
+    }
+]

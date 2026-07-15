@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Spot - Hidden Gems</title>
+</head>
+<body>
+
+    <h1>Add a Hidden Gem</h1>
+
+    <!-- Form for adding a new travel spot -->
+    <form method="POST">
+        <input type="text" name="name" placeholder="Spot Name" required>
+
+        <textarea name="description" placeholder="Description" required></textarea>
+
+        <input type="text" name="location" placeholder="Location" required>
+
+        <select name="category" required>
+            <option value="">Select Category</option>
+            <option value="Nature">Nature</option>
+            <option value="Beach">Beach</option>
+            <option value="Historical">Historical</option>
+            <option value="Adventure">Adventure</option>
+        </select>
+
+        <input type="url" name="image_url" placeholder="Image URL" required>
+
+        <button type="submit">Add Spot</button>
+    </form>
+
+    <a href="{{ url_for('spots.home') }}">Back to Home</a>
+
+</body>
+</html>

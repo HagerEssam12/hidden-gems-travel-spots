@@ -29,11 +29,11 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        # Store the logged-in username in the session
+        # Store the logged-in username and redirect to home
         if validate_user(username, password):
             session["username"] = username
-            return "Login successful"
-
+            return redirect(url_for("spots.home"))
+        
         return "Invalid username or password"
 
     return render_template("login.html")
