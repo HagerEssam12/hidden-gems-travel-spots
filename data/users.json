@@ -3,5 +3,27 @@
         "username": "hager",
         "password": "12345",
         "favorites": []
+    },
+    {
+        "username": "Omar",
+        "password": "6789",
+        "favorites": [
+            1
+        ]
+    },
+    {
+        "username": "Ahmed",
+        "password": "146",
+        "favorites": []
+    },
+    {
+        "username": "Haidy",
+        "password": "313",
+        "favorites": []
+    },
+    {
+        "username": "Essam",
+        "password": "184",
+        "favorites": []
     }
 ]

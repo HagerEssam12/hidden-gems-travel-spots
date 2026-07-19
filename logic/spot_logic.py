@@ -37,3 +37,26 @@ def add_spot(name, description, location, category, image_url, added_by):
     # Save the updated spots list
     save_spots(spots)
 
+    # Search and filter travel spots
+def filter_spots(spots, search_query="", category=""):
+    filtered_spots = []
+
+    for spot in spots:
+        # Check if the spot matches the search query
+        matches_search = (
+            search_query.lower() in spot["name"].lower()
+            or search_query.lower() in spot["location"].lower()
+        )
+
+        # Check if the spot matches the selected category
+        matches_category = (
+            category == ""
+            or spot["category"] == category
+        )
+
+        # Add the spot if it matches both conditions
+        if matches_search and matches_category:
+            filtered_spots.append(spot)
+
+    return filtered_spots
+

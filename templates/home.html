@@ -1,34 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Gems</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Hidden Gems</h1>
+{% block title %}
+Hidden Gems
+{% endblock %}
 
-    <p>Welcome, {{ session["username"] }}</p>
+{% block content %}
 
-    <a href="{{ url_for('spots.add_new_spot') }}">Add New Spot</a>
-    <a href="{{ url_for('auth.logout') }}">Logout</a>
+<div class="container">
 
-    <!-- Display all travel spots -->
-    {% for spot in spots %}
-        <div>
-            <img src="{{ spot.image_url }}" alt="{{ spot.name }}" width="300">
+   <section class="hero">
 
-            <h2>{{ spot.name }}</h2>
+    <h1>Discover Hidden Gems</h1>
 
-            <p>{{ spot.description }}</p>
-            <p>Location: {{ spot.location }}</p>
-            <p>Category: {{ spot.category }}</p>
-            <p>Added by: {{ spot.added_by }}</p>
-        </div>
-    {% else %}
-        <p>No hidden gems added yet.</p>
-    {% endfor %}
+    <p>
+        Welcome back,
+        <strong>{{ session["username"] }}</strong>
+    </p>
 
-</body>
-</html>
+    <p class="hero-text">
+        Explore breathtaking destinations, discover hidden places,
+        and share your favorite travel experiences with others.
+    </p>
+
+    <div class="stats">
+
+    <div class="stat-card">
+
+        <h2>{{ total_spots }}</h2>
+
+        <p>Total Spots</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>{{ session["username"] }}</h2>
+
+        <p>Current User</p>
+
+    </div>
+
+</div>
+
+</section>
+
+    <!-- Search Form -->
+    <div class="search-box">
+
+    <form method="GET" class="search-form">
+
+        <input
+            class="search-input"
+            type="text"
+            name="search"
+            placeholder="Search by name or location..."
+            value="{{ search_query }}"
+        >
+
+        <select class="search-select" name="category">
+
+            <option value="">All Categories</option>
+
+            <option value="Nature"
+                {% if selected_category == "Nature" %}selected{% endif %}>
+                Nature
+            </option>
+
+            <option value="Beach"
+                {% if selected_category == "Beach" %}selected{% endif %}>
+                Beach
+            </option>
+
+            <option value="Historical"
+                {% if selected_category == "Historical" %}selected{% endif %}>
+                Historical
+            </option>
+
+            <option value="Adventure"
+                {% if selected_category == "Adventure" %}selected{% endif %}>
+                Adventure
+            </option>
+
+        </select>
+
+        <button class="btn btn-primary" type="submit">
+            Search
+        </button>
+
+    </form>
+      </div>
+
+    <!-- Travel Spots -->
+    <div class="spots-grid">
+
+        {% for spot in spots %}
+
+            <div class="spot-card">
+
+                <img
+                    class="card-image"
+                    src="{{ spot.image_url }}"
+                    alt="{{ spot.name }}"
+                >
+
+                <div class="card-content">
+
+                    <h2 class="card-title">
+                        {{ spot.name }}
+                    </h2>
+
+                    <p class="card-text">
+                        {{ spot.description }}
+                    </p>
+
+                    <p><strong> Location:</strong> {{ spot.location }}</p>
+                    <p><strong> Category:</strong> {{ spot.category }}</p>
+                    <p><strong> Added by:</strong> {{ spot.added_by }}</p>
+
+                    <a
+                        class="btn btn-primary"
+                        href="{{ url_for('spots.favorite_spot', spot_id=spot.id) }}"
+                    >
+                        Add to Favorites 
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-state">
+    <h2>No Travel Spots Found</h2>
+    <p>
+        Start by adding your first hidden gem and share it with everyone!
+    </p>
+
+    <a class="btn btn-primary"
+       href="{{ url_for('spots.add_new_spot') }}">
+        Add Your First Spot
+    </a>
+</div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

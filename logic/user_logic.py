@@ -50,4 +50,42 @@ def validate_user(username, password):
         if user["username"] == username and user["password"] == password:
             return True
 
-    return False    
+    return False   
+ 
+# Add a travel spot to the user's favorites
+def add_favorite(username, spot_id):
+    users = load_users()
+
+    for user in users:
+        if user["username"] == username:
+            # Avoid adding the same spot more than once
+            if spot_id not in user["favorites"]:
+                user["favorites"].append(spot_id)
+
+            break
+
+    save_users(users)
+
+# Remove a travel spot from the user's favorites
+def remove_favorite(username, spot_id):
+    users = load_users()
+
+    for user in users:
+        if user["username"] == username:
+            # Remove the spot if it exists in favorites
+            if spot_id in user["favorites"]:
+                user["favorites"].remove(spot_id)
+
+            break
+
+    save_users(users)    
+
+# Get the user's favorite spot IDs
+def get_user_favorites(username):
+    users = load_users()
+
+    for user in users:
+        if user["username"] == username:
+            return user["favorites"]
+
+    return []    

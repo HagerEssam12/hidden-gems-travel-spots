@@ -1,36 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Spot - Hidden Gems</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Add a Hidden Gem</h1>
+{% block title %}
+Add Spot - Hidden Gems
+{% endblock %}
 
-    <!-- Form for adding a new travel spot -->
-    <form method="POST">
-        <input type="text" name="name" placeholder="Spot Name" required>
+{% block content %}
 
-        <textarea name="description" placeholder="Description" required></textarea>
+<div class="container">
 
-        <input type="text" name="location" placeholder="Location" required>
+    <div class="form-card">
 
-        <select name="category" required>
-            <option value="">Select Category</option>
-            <option value="Nature">Nature</option>
-            <option value="Beach">Beach</option>
-            <option value="Historical">Historical</option>
-            <option value="Adventure">Adventure</option>
-        </select>
+        <h1>Add a Hidden Gem </h1>
 
-        <input type="url" name="image_url" placeholder="Image URL" required>
+        <p class="subtitle">
+            Share your favorite travel destination with other explorers.
+        </p>
 
-        <button type="submit">Add Spot</button>
-    </form>
+        <form method="POST" class="form">
 
-    <a href="{{ url_for('spots.home') }}">Back to Home</a>
+            <input
+                class="form-input"
+                type="text"
+                name="name"
+                placeholder="Spot Name"
+                required
+            >
 
-</body>
-</html>
+            <textarea
+                class="form-input"
+                name="description"
+                placeholder="Description"
+                rows="4"
+                required
+            ></textarea>
+
+            <input
+                class="form-input"
+                type="text"
+                name="location"
+                placeholder="Location"
+                required
+            >
+
+            <select
+                class="form-input"
+                name="category"
+                required
+            >
+                <option value="">Select Category</option>
+                <option value="Nature">Nature</option>
+                <option value="Beach">Beach</option>
+                <option value="Historical">Historical</option>
+                <option value="Adventure">Adventure</option>
+            </select>
+
+            <input
+                class="form-input"
+                type="url"
+                name="image_url"
+                placeholder="Image URL"
+                required
+            >
+
+            <button class="btn btn-primary" type="submit">
+                Add Spot
+            </button>
+
+        </form>
+
+        <a class="btn btn-secondary" href="{{ url_for('spots.home') }}">
+            Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

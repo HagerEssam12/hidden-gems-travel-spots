@@ -1,24 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Hidden Gems</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Create Account</h1>
+{% block title %}
+Register - Hidden Gems
+{% endblock %}
 
-    <!-- Registration form -->
-    <form method="POST">
-        <input type="text" name="username" placeholder="Username" required>
+{% block content %}
 
-        <input type="password" name="password" placeholder="Password" required>
+<div class="container">
 
-        <button type="submit">Register</button>
-    </form>
+    <div class="form-card">
 
-    <p>Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
+        <h1>Create Your Account </h1>
 
-</body>
-</html>
+        <p class="subtitle">
+            Join Hidden Gems and start sharing amazing travel spots.
+        </p>
+
+        <form method="POST" class="form">
+
+            <input
+                class="form-input"
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+            >
+
+            <input
+                class="form-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <button class="btn btn-primary" type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <p class="switch-page">
+            Already have an account?
+            <a href="{{ url_for('auth.login') }}">
+                Login
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

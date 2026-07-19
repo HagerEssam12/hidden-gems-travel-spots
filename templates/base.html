@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hidden Gems{% endblock %}</title>
+
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Hidden Gems
+        </div>
+
+        {% if session.get("username") %}
+
+        <div class="nav-menu">
+
+            <a
+               href="{{ url_for('spots.home') }}"
+               class="{% if request.endpoint == 'spots.home' %}active{% endif %}"
+            >
+              Home
+            </a>
+
+            <a
+                href="{{ url_for('spots.add_new_spot') }}"
+                 class="{% if request.endpoint == 'spots.add_new_spot' %}active{% endif %}"
+            >
+              Add Spot
+            </a>
+
+            <a
+               href="{{ url_for('spots.favorites') }}"
+               class="{% if request.endpoint == 'spots.favorites' %}active{% endif %}"
+            >
+              Favorites
+           </a>
+
+            <a href="{{ url_for('auth.logout') }}">
+                Logout
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </nav>
+
+    {% block content %}
+{% endblock %}
+
+<footer class="footer">
+
+    <h3>Hidden Gems</h3>
+
+    <p>Discover • Explore • Share</p>
+
+    <small>© 2026 Hidden Gems. Built with Flask.</small>
+
+</footer>
+
+</body>
+
+</body>
+
+</body>
+</html>
