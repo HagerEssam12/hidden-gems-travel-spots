@@ -10,7 +10,7 @@ Add Spot - Hidden Gems
 
     <div class="form-card">
 
-        <h1>Add a Hidden Gem </h1>
+        <h1>Add a New Hidden Gem</h1>
 
         <p class="subtitle">
             Share your favorite travel destination with other explorers.
@@ -18,6 +18,7 @@ Add Spot - Hidden Gems
 
         <form method="POST" class="form">
 
+            <!-- Spot Name -->
             <input
                 class="form-input"
                 type="text"
@@ -26,6 +27,7 @@ Add Spot - Hidden Gems
                 required
             >
 
+            <!-- Description -->
             <textarea
                 class="form-input"
                 name="description"
@@ -34,6 +36,7 @@ Add Spot - Hidden Gems
                 required
             ></textarea>
 
+            <!-- Location -->
             <input
                 class="form-input"
                 type="text"
@@ -42,6 +45,7 @@ Add Spot - Hidden Gems
                 required
             >
 
+            <!-- Category -->
             <select
                 class="form-input"
                 name="category"
@@ -54,6 +58,7 @@ Add Spot - Hidden Gems
                 <option value="Adventure">Adventure</option>
             </select>
 
+            <!-- Image URL -->
             <input
                 class="form-input"
                 type="url"
@@ -62,15 +67,12 @@ Add Spot - Hidden Gems
                 required
             >
 
+            <!-- Submit Button -->
             <button class="btn btn-primary" type="submit">
                 Add Spot
             </button>
 
         </form>
-
-        <a class="btn btn-secondary" href="{{ url_for('spots.home') }}">
-            Back to Home
-        </a>
 
     </div>
 

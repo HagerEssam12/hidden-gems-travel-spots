@@ -8,40 +8,38 @@ Register - Hidden Gems
 
 <div class="container">
 
+    <!-- Register Form -->
     <div class="form-card">
 
-        <h1>Create Your Account </h1>
+        <h1>Create Your Account</h1>
 
         <p class="subtitle">
             Join Hidden Gems and start sharing amazing travel spots.
         </p>
-
+        {% if error %}
+        <p class="error-message">
+            {{ error }}
+        </p>
+        {% endif %}
         <form method="POST" class="form">
 
-            <input
-                class="form-input"
-                type="text"
-                name="username"
-                placeholder="Username"
-                required
-            >
+            <!-- Username -->
+            <input class="form-input" type="text" name="username" placeholder="Username" required>
 
-            <input
-                class="form-input"
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-            >
+            <!-- Password -->
+            <input class="form-input" type="password" name="password" placeholder="Password" required>
 
+            <!-- Register Button -->
             <button class="btn btn-primary" type="submit">
                 Register
             </button>
 
         </form>
 
+        <!-- Login Link -->
         <p class="switch-page">
             Already have an account?
+
             <a href="{{ url_for('auth.login') }}">
                 Login
             </a>

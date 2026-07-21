@@ -13,8 +13,14 @@ body {
     background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
+.main-content {
+    flex: 1;
+}
 /* =========================
    Layout
 ========================= */
@@ -164,15 +170,22 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
+    align-items: stretch;
 }
 
 .spot-card {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+
+    transition: transform .3s ease;
 }
+
 
 .spot-card:hover {
     transform: translateY(-5px);
@@ -186,6 +199,10 @@ h1 {
 
 .card-content {
     padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .card-title {
@@ -320,7 +337,7 @@ h1 {
 
 .stat-card {
     background: white;
-    width: 220px;
+    width:250px;
     padding: 25px;
     text-align: center;
 
@@ -447,4 +464,84 @@ h1 {
 
     margin-bottom:25px;
 
+}
+/* Delete Button */
+
+.btn-danger{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 18px;
+
+    background:#dc3545;
+    color:white;
+
+    text-decoration:none;
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.btn-danger:hover{
+    background:#b02a37;
+}
+.card-actions{
+
+    margin-top:auto;
+
+    display:flex;
+
+    gap:10px;
+
+    padding-top:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.top-buttons{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.top-buttons .btn{
+    flex:1;
+}
+
+.favorite-btn{
+    width:100%;
+}
+.btn-warning{
+
+    background:#ffc107;
+
+    color:#212529;
+
+    transition:.3s;
+
+}
+
+.btn-warning:hover{
+
+    background:#e0a800;
+
+}
+.btn-success {
+    background: #198754;
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background: #198754;
+    cursor: default;
+}
+.error-message{
+    background:#f8d7da;
+    color:#842029;
+    border:1px solid #f5c2c7;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:15px;
+    text-align:center;
 }

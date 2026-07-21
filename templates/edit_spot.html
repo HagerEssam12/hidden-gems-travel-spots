@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Spot - Hidden Gems
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="form-card">
+
+        <h1>Edit Travel Spot</h1>
+
+        <p class="subtitle">
+            Update your travel spot information.
+        </p>
+
+        <form method="POST" class="form">
+
+            <!-- Spot Name -->
+            <input
+                class="form-input"
+                type="text"
+                name="name"
+                value="{{ spot.name }}"
+                required
+            >
+
+            <!-- Description -->
+            <textarea
+                class="form-input"
+                name="description"
+                rows="4"
+                required
+            >{{ spot.description }}</textarea>
+
+            <!-- Location -->
+            <input
+                class="form-input"
+                type="text"
+                name="location"
+                value="{{ spot.location }}"
+                required
+            >
+
+            <!-- Image URL -->
+            <input
+                class="form-input"
+                type="url"
+                name="image_url"
+                value="{{ spot.image_url }}"
+                required
+            >
+
+            <!-- Category -->
+            <select
+                class="form-input"
+                name="category"
+                required
+            >
+
+                <option value="Nature"
+                    {% if spot.category == "Nature" %}selected{% endif %}>
+                    Nature
+                </option>
+
+                <option value="Beach"
+                    {% if spot.category == "Beach" %}selected{% endif %}>
+                    Beach
+                </option>
+
+                <option value="Historical"
+                    {% if spot.category == "Historical" %}selected{% endif %}>
+                    Historical
+                </option>
+
+                <option value="Adventure"
+                    {% if spot.category == "Adventure" %}selected{% endif %}>
+                    Adventure
+                </option>
+
+            </select>
+
+            <!-- Save Button -->
+            <button
+                class="btn btn-warning"
+                type="submit">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
