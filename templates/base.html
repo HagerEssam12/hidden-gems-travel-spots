@@ -46,7 +46,7 @@
                 Favorites
             </a>
 
-            <a href="{{ url_for('auth.logout') }}">
+            <a href="{{ url_for('auth.logout') }}" id="logout-link">
                 Logout
             </a>
 
@@ -87,18 +87,10 @@
     <!-- =========================
          Store Logged-in Username
     ========================== -->
-    <script>
-
-        const username = "{{ session.get('username', '') }}";
-
-        if (username) {
-            localStorage.setItem("username", username);
-        } else {
-            localStorage.removeItem("username");
-        }
-
-    </script>
-
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        
+    
+        
 </body>
 
 </html>

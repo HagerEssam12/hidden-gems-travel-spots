@@ -1,18 +1,20 @@
 class Spot:
-    def __init__(self, name, location, category, description, image_url, added_by):
+    def __init__(self, spot_id, name, description, location, category, image_url, added_by):
+        self.id = spot_id
         self.name = name
+        self.description = description
         self.location = location
         self.category = category
-        self.description = description
         self.image_url = image_url
         self.added_by = added_by
 
     def to_dict(self):
         return {
+            "id": self.id,
             "name": self.name,
+            "description": self.description,
             "location": self.location,
             "category": self.category,
-            "description": self.description,
             "image_url": self.image_url,
             "added_by": self.added_by
         }
