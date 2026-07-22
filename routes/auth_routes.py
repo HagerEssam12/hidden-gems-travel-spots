@@ -10,7 +10,7 @@ auth_bp = Blueprint("auth", __name__)
 def register():
 
     error = None
-
+    # print(metho/d)
     if request.method == "POST":
 
         username = request.form["username"]

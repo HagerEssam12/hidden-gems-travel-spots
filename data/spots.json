@@ -1,14 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Siwa Oasis",
-        "description": " A peaceful hidden gem surrounded by nature.",
-        "location": "Siwa, Egypt",
-        "category": "Nature",
-        "image_url": "https://i.pinimg.com/originals/44/76/88/4476888250594845a11c727ec30e3557.jpg",
-        "added_by": "hager"
-    },
-    {
         "id": 3,
         "name": "Saint Catherine",
         "description": "A historic mountain town known for Saint Catherine's Monastery and hiking Mount Sinai.",
@@ -37,7 +28,7 @@
     },
     {
         "id": 6,
-        "name": "\u062a\u0628\u0627\u0649\u062a\u0631 ",
+        "name": "updat3ed",
         "description": "\u0646\u062a\u0627\u0631\u0627\u0649\u0629",
         "location": "\u0649\u0627\u0627\u064a\u062a\u0646\u0645\u0646",
         "category": "Nature",

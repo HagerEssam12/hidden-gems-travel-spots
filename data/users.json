@@ -2,7 +2,10 @@
     {
         "username": "hager",
         "password": "12345",
-        "favorites": []
+        "favorites": [
+            5,
+            6
+        ]
     },
     {
         "username": "Omar",
@@ -44,6 +47,11 @@
     {
         "username": "Amir",
         "password": "555",
+        "favorites": []
+    },
+    {
+        "username": "admin",
+        "password": "admin",
         "favorites": []
     }
 ]

@@ -1,5 +1,8 @@
 import json
+from logic.spot import Spot
 
+# Path to the travel spots JSON file
+SPOTS_FILE = "data/spots.json"
 # Path to the travel spots JSON file
 SPOTS_FILE = "data/spots.json"
 
@@ -25,17 +28,20 @@ def add_spot(name, description, location, category, image_url, added_by):
     # Generate a unique ID for the new spot
     new_id = max([spot["id"] for spot in spots], default=0) + 1
 
-    new_spot = {
-        "id": new_id,
-        "name": name,
-        "description": description,
-        "location": location,
-        "category": category,
-        "image_url": image_url,
-        "added_by": added_by
-    }
+    # Create a Spot object
+    new_spot = Spot(
+        new_id,
+        name,
+        description,
+        location,
+        category,
+        image_url,
+        added_by
+    )
 
-    spots.append(new_spot)
+    # Convert the object to a dictionary
+    spots.append(new_spot.to_dict())
+
     save_spots(spots)
 
 
